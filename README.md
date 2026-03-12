@@ -6,6 +6,17 @@ In modern defensive operations, deploying Unmanned Aerial Vehicles (UAVs) to cre
 
 This project is a sophisticated **3D Kinematics Simulation and Trajectory Optimization Engine**. It mathematically models the physical behavior of missiles, UAVs, and expanding smoke clouds. By combining **Meta-Heuristic Optimization (Differential Evolution)** with **Mixed-Integer Linear Programming (MILP)**, the engine dynamically generates optimal flight paths and deployment strategies for a UAV swarm to maximize the continuous Line-of-Sight (LoS) obscuration time, successfully protecting ground targets.
 
+## **📁 Project Structure**
+
+.  
+├── utils.py                 \# Core 3D geometry engine (Cone/Sphere intersection algorithms)  
+├── get\_pos.py               \# Kinematics engine (Missile & Smoke trajectory calculators)  
+├── 1.py \- 4.py              \# Iterative Differential Evolution solvers (from simple to complex scenarios)  
+├── 5\_get\_paths.py           \# Path generator building the candidate pool for the swarm  
+├── 5\_merge.py               \# Data merging utility for generated trajectories  
+├── 5\_final\_solver.py        \# MILP / Column Generation solver using PuLP for multi-UAV assignment  
+└── README.md                \# Project documentation
+
 ## **🧠 Simulation Engine & 3D Physics Model**
 
 To ensure real-world applicability, I built a custom 3D physics engine from scratch to simulate the battlefield environment:
@@ -36,17 +47,6 @@ The optimization pipeline scales from single-agent continuous parameter tuning t
 * **Heuristic Solvers:** SciPy (scipy.optimize.differential\_evolution)  
 * **Linear Programming Solver:** PuLP  
 * **Data Persistence:** Pandas, Pickle (for storing pre-computed path columns)
-
-## **📁 Project Structure**
-
-.  
-├── utils.py                 \# Core 3D geometry engine (Cone/Sphere intersection algorithms)  
-├── get\_pos.py               \# Kinematics engine (Missile & Smoke trajectory calculators)  
-├── 1.py \- 4.py              \# Iterative Differential Evolution solvers (from simple to complex scenarios)  
-├── 5\_get\_paths.py           \# Path generator building the candidate pool for the swarm  
-├── 5\_merge.py               \# Data merging utility for generated trajectories  
-├── 5\_final\_solver.py        \# MILP / Column Generation solver using PuLP for multi-UAV assignment  
-└── README.md                \# Project documentation
 
 ## **⚙️ Installation & Usage**
 
