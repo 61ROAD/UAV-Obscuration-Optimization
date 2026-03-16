@@ -14,7 +14,7 @@ def cone_from_sphere(missile_pos, smoke_center, smoke_radius):
     d = np.linalg.norm(v)
     axis = v / d
     half_angle = np.arcsin(smoke_radius / d)
-    return M, axis, half_angle
+    return M, axis,half_angle
 
 
 def point_in_cone(x, y, z, M, axis, cos2, eps=1e-12):
